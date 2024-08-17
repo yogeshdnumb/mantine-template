@@ -10,8 +10,9 @@ import {
   useComputedColorScheme,
   useMantineColorScheme,
 } from "@mantine/core";
-import { FiSearch } from "react-icons/fi";
+import { FiPlus, FiPlusCircle, FiPlusSquare, FiSearch } from "react-icons/fi";
 import { RxSun, RxMoon } from "react-icons/rx";
+import { useNavigate } from "react-router-dom";
 
 interface HeaderProps {
   isDesktopNavbarOpened: boolean;
@@ -21,19 +22,20 @@ interface HeaderProps {
 }
 
 export default function Header({
-  // isDesktopNavbarOpened,
+  isDesktopNavbarOpened,
   toggleDesktopNavbar,
   isMobileNavbarOpened,
   toggleMobileNavbar,
 }: HeaderProps) {
   const { setColorScheme } = useMantineColorScheme();
   const computedColorScheme = useComputedColorScheme();
+  const navigate = useNavigate();
 
   return (
     <AppShell.Header>
       <Group px={"sm"} h={"100%"}>
         <Burger
-          // opened={isDesktopNavbarOpened}
+          opened={isDesktopNavbarOpened}
           onClick={toggleDesktopNavbar}
           visibleFrom="xs"
         />
@@ -62,6 +64,15 @@ export default function Header({
             )}
           </ActionIcon>
         </Group>
+        <ActionIcon
+          variant="default"
+          size={"lg"}
+          onClick={() => {
+            navigate("/create");
+          }}
+        >
+          <FiPlus size={"70%"}></FiPlus>
+        </ActionIcon>
       </Group>
     </AppShell.Header>
   );

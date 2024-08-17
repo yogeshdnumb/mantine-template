@@ -1,12 +1,16 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "@src/features/Layout/Layout";
 import Home from "@src/pages/Home/Home";
+import CreatePostPage from "@src/pages/CreatePostPage/CreatePostPage";
 
 const routes = createBrowserRouter([
   {
     element: <Layout />,
     // errorElement: <p></p>,
-    children: [{ element: <Home />, path: "/" }],
+    children: [
+      { element: <Home />, path: "/" },
+      { element: <CreatePostPage />, path: "/create" },
+    ],
   },
 ]);
 

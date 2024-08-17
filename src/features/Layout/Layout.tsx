@@ -19,7 +19,7 @@ export default function Layout() {
       header={{ height: 60 }}
       navbar={{
         width: 250,
-        breakpoint: "sm",
+        breakpoint: "xs",
         collapsed: {
           mobile: !isMobileNavbarOpened,
           desktop: !isDesktopNavbarOpened,
